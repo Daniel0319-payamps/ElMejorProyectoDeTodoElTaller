@@ -1,0 +1,417 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+body{
+    background: linear-gradient(100deg, rgba(255, 255, 255, 1) 0%, rgb(208, 209, 214) 50%, rgb(255, 255, 255) 100%);
+}
+
+/* navbar */ 
+#Header { /* La barra negra superior de la pagina que contiene botones para navegar */
+    background-color: black;
+    position:sticky;
+    display: flex;
+    flex-direction: row;
+    height: 100px;
+    width:100%;
+    align-items: center;
+    padding: 0 20px;
+}
+
+#Logo-Header { /* Logo de la barra, boton que lleva al home-page */
+    width: 250px;
+    height: 70px;
+}
+
+
+#Logo-Header-HomeButton {
+    background-color: black;
+    border: solid;
+    border: 0px;
+    transition: transform 0.5s ease;
+}
+
+/* agrandar al hacer hover */ 
+#Logo-Header-HomeButton:hover {
+    transform: scale(1.02);
+}
+
+/* achicar al presionar */ 
+#Logo-Header-HomeButton:active {
+    transform: scale(0.9);
+}
+
+
+#Catalogo-Vehiculos-Button { /* boton para ir al catalogo de vehiculos */
+    background-color: rgb(0, 0, 0);
+    height: 50px;
+    width: 180px;
+    justify-items: center;
+    align-content: center;
+    border-style: solid;
+    border: 1px;
+    color: white;
+    border-radius: 17px;
+    font-weight: lighter;
+    font-size: larger;
+
+    /* efecto neumorfismo */
+    box-shadow: 
+    0px 7px 8px rgba(0, 0, 0, 0),
+    0px 8px 15px rgba(150, 150, 150, 0),
+
+    inset 0px 1px 10px rgb(168, 168, 168),
+    inset 0px -2px 6px rgb(0, 0, 0),
+    inset 0px -2px 10px rgb(170, 170, 170);
+    margin-left: 25px;
+    
+    transition: transform 0.5s ease-out, box-shadow 0.5s ease;
+}
+
+#Catalogo-Vehiculos-Button:hover {
+    /* efecto neumorfismo */
+    box-shadow: 
+    0px 7px 8px rgb(0, 0, 0),
+    0px 8px 15px rgb(150, 150, 150),
+
+    inset 0px 1px 10px rgb(168, 168, 168),
+    inset 0px -2px 6px rgb(0, 0, 0),
+    inset 0px -2px 10px rgb(170, 170, 170);
+    margin-left: 25px;
+    transform: scale(1.03);
+}
+
+/* achicar al presionar */ 
+#Catalogo-Vehiculos-Button:active {
+    transform: scale(0.9);
+}
+
+
+
+/* Catalogo */
+
+#Catalogo{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.tarjeta {
+    background: #ffffff;
+    background: linear-gradient(150deg, rgba(255, 255, 255, 1) 0%, rgb(253, 253, 253) 50%, rgb(157, 158, 163) 100%);
+    border-radius: 16px;
+    overflow: hidden;
+    color: rgb(0, 0, 0);
+    margin: 16px;
+    border: 1px;
+    border-style: solid;
+    border-color: rgb(200, 201, 204);
+    height: 340px;
+    box-shadow: 
+    inset 0px 1px 3px rgb(255, 255, 255),
+    inset 0px -2px 3px rgb(255, 255, 255);
+    transition: transform 0.6s ease, box-shadow 1s ease;
+}
+
+.tarjeta:hover {
+    transform: scale(1.02);
+    box-shadow: 
+    0px 10px 10px rgb(180, 180, 180),
+    inset 0px 1px 3px rgb(255, 255, 255),
+    inset 0px -2px 3px rgb(255, 255, 255);
+}
+
+.tarjeta img {
+    width: 100%;
+    height: 150px;
+     object-fit: cover;
+    object-position: center;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+
+}
+
+
+
+.tarjeta-info {
+    padding: 16px;
+}
+
+.tarjeta-info h2 {
+    font-size: 16px;
+    margin-bottom: 6px;
+}
+
+.tarjeta-info .precio {
+    font-size: 15px;
+    font-weight: bold;
+    color: rgb(23, 27, 21);
+    margin-bottom: 10px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.badge-disponible { background-color: #1a7a1a; color: #90ee90; }
+.badge-en-uso     { background-color: #7a5a00; color: #ffd700; }
+.badge-mantenimiento { background-color: #7a1a1a; color: #ff9090; }
+
+.btn-contrato {
+  display: block;
+    width: 100%;
+    padding: 10px;
+    background: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: background 0.3s ease;
+    justify-content: center;
+    box-shadow: 
+    0px 7px 8px rgba(0, 0, 0, 0),
+    0px 8px 15px rgba(150, 150, 150, 0),
+
+    inset 0px 1px 3px rgb(255, 255, 255),
+    inset 0px -2px 3px rgb(255, 255, 255);
+}
+
+.btn-contrato:hover { 
+    background: #d8d8d8;
+    color: black;
+ }
+
+.btn-deshabilitado {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background: #333;
+    color: #888;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    cursor: not-allowed;
+}
+
+#Contrato-Page {
+    display: flex;
+    gap: 40px;
+    padding: 40px;
+    color: white;
+    background: #0a0a0a;
+    min-height: 100vh;
+}
+
+#Contrato-Info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#Contrato-Img {
+    width: 100%;
+    border-radius: 16px;
+    object-fit: cover;
+}
+
+#Contrato-Detalles h2 {
+    font-size: 24px;
+    margin-bottom: 12px;
+}
+
+#Contrato-Detalles p {
+    font-size: 14px;
+    color: #aaa;
+    margin-bottom: 6px;
+}
+
+.precio-contrato {
+    font-size: 22px !important;
+    color: white !important;
+    font-weight: bold;
+    margin-top: 12px !important;
+}
+
+#Contrato-Form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+#Contrato-Form h3 {
+    font-size: 16px;
+    color: #aaa;
+    margin-top: 8px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group label {
+    font-size: 13px;
+    color: #aaa;
+}
+
+.form-group input {
+    padding: 10px 14px;
+    border-radius: 10px;
+    border: 1px solid #333;
+    background: #1a1a1a;
+    color: white;
+    font-size: 14px;
+}
+
+#btn-confirmar {
+    padding: 14px;
+    background: white;
+    color: black;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.3s ease;
+}
+
+#btn-confirmar:hover {
+    background: #ddd;
+}
+
+#Login-Page {
+    display: flex;
+    min-height: 100vh;
+    background: #0a0a0a;
+}
+
+#Login-Left {
+    flex: 1;
+    background: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#Login-Left img {
+        width: 260px;
+}
+
+#Login-Right {
+    flex: 1;
+    background: linear-gradient(150deg, rgb(153, 152, 160) 0%, rgb(255, 255, 255) 50%, rgb(85, 86, 90) 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 40px;
+}
+
+#Login-Right h1 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 4px;
+}
+
+#Login-Right h2 {
+    font-size: 16px;
+    font-weight: 400;
+    color: #555;
+    margin-bottom: 24px;
+}
+
+#Login-Right .login-error {
+    color: red;
+    font-size: 13px;
+    margin-bottom: 12px;
+}
+
+#Login-Right .form-group {
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 12px;
+}
+
+#Login-Right .form-group input {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background: white;
+    font-size: 14px;
+    color: #111;
+
+    box-shadow: 
+    0px 5px 8px rgb(255, 255, 255),
+    0px 14px 10px rgb(173, 173, 173),
+
+    inset 0px 1px 10px rgb(255, 255, 255),
+    inset 0px -5px 6px rgb(255, 255, 255),
+    inset 0px -3px 10px rgb(138, 138, 138);
+}
+
+#Login-Right .form-group input::placeholder {
+    color: #999;
+}
+
+.btn-login {
+    width: 100%;
+    max-width: 340px;
+    padding: 14px;
+    background: #111;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 8px;
+
+    box-shadow:
+    
+    inset 0px 3px 3px rgb(39, 39, 39),
+    inset 0px 5px 5px rgb(255, 255, 255),
+    inset 0px -3px 3px rgb(39, 39, 39),
+    inset 0px -5px 5px rgb(255, 255, 255);
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.btn-login a {
+    color: white;
+}
+
+.btn-login:hover {
+    background: #ffffff;
+    box-shadow: 
+    inset 0px 3px 3px rgb(255, 255, 255),
+    inset 0px 5px 5px rgb(39, 39, 39),
+    inset 0px -3px 3px rgb(247, 247, 247),
+    inset 0px -5px 5px rgb(39, 39, 39),
+    0px 8px 8px rgb(179, 179, 179),
+    0px 15px 12px rgb(95, 95, 95);
+    color: black;
+    transform: scale(1.03);
+}
+
+.btn-login:hover a{
+    color: black;
+}
+
+#ImagendelHome {
+    width: 100%;
+    height: 900px;
+}

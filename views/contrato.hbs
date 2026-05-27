@@ -1,0 +1,93 @@
+<link rel="stylesheet" href="/contrato.css">
+
+<div id="Contrato-Page">
+    <div id="Contrato-Info">
+        <img id="Contrato-Img" src="{{vehiculo.imagen_url}}" alt="{{vehiculo.marca}} {{vehiculo.modelo}}">
+        <div id="Contrato-Detalles">
+            <h2>{{vehiculo.marca}} {{vehiculo.modelo}}</h2>
+            <p>Año: {{vehiculo.anio}}</p>
+            <p>Color: {{vehiculo.color}}</p>
+            <p>Kilometraje: {{vehiculo.kilometraje_actual}} km</p>
+            <p>Combustible: {{vehiculo.nivel_combustible}}</p>
+            <p class="precio-contrato">RD$ {{vehiculo.precio_dia}} / día</p>
+        </div>
+    </div>
+
+    <form id="Contrato-Form" action="/contrato/confirmar" method="POST">
+        <input type="hidden" name="id_vehiculo" value="{{vehiculo.id_vehiculo}}">
+        <input type="hidden" name="precio_dia" value="{{vehiculo.precio_dia}}">
+
+        <h3>Datos del Cliente</h3>
+
+        <div class="form-group">
+            <label>Nombre completo</label>
+            <input type="text" name="nombre" required>
+        </div>
+        <div class="form-group">
+            <label>Cédula</label>
+            <input type="text" name="cedula" placeholder="000-0000000-0" required>
+        </div>
+        <div class="form-group">
+            <label>Teléfono</label>
+            <input type="text" name="telefono" placeholder="809-000-0000" required>
+        </div>
+        <div class="form-group">
+            <label>Dirección</label>
+            <input type="text" name="direccion" required>
+        </div>
+
+        <h3>Período de Alquiler</h3>
+
+        <div class="form-group">
+            <label>Fecha de inicio</label>
+            <input type="date" name="fecha_inicio" required>
+        </div>
+        <div class="form-group">
+            <label>Fecha de fin</label>
+            <input type="date" name="fecha_fin" required>
+        </div>
+
+        <h3>Datos de Pago</h3>
+
+        <div class="form-group">
+            <label>Número de tarjeta</label>
+            <input type="text" name="num_tarjeta" placeholder="0000 0000 0000 0000" maxlength="19" required>
+        </div>
+        <div style="display:flex; gap:16px;">
+            <div class="form-group" style="flex:1">
+                <label>Vencimiento</label>
+                <input type="text" name="vencimiento" placeholder="MM/AA" maxlength="5" required>
+            </div>
+            <div class="form-group" style="flex:1">
+                <label>CVV</label>
+                <input type="text" name="cvv" placeholder="000" maxlength="3" required>
+            </div>
+        </div>
+
+        <button type="submit" id="btn-confirmar">
+            <a href="/catalogo" style="color: #000000; font-weight: bold; text-decoration: none;">Confirmar Contrato</a>
+        </button>
+        
+    </form>
+</div>
+
+<script>
+    const cedula = document.querySelector('input[name="cedula"]')
+    const telefono = document.querySelector('input[name="telefono"]')
+
+    cedula.addEventListener('input', (e) => {
+        let val = e.target.value.replace(/\D/g, '')
+        if (val.length > 11) val = val.slice(0, 11)
+        if (val.length > 7) val = val.slice(0,3) + '-' + val.slice(3,10) + '-' + val.slice(10)
+        else if (val.length > 3) val = val.slice(0,3) + '-' + val.slice(3)
+        e.target.value = val
+    })
+
+    telefono.addEventListener('input', (e) => {
+        let val = e.target.value.replace(/\D/g, '')
+        if (val.length > 10) val = val.slice(0, 10)
+        if (val.length > 6) val = val.slice(0,3) + '-' + val.slice(3,6) + '-' + val.slice(6)
+        else if (val.length > 3) val = val.slice(0,3) + '-' + val.slice(3)
+        e.target.value = val
+    })
+</script>

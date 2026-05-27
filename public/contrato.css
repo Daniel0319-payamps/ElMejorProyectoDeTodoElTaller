@@ -1,0 +1,238 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #0a0a0a;
+}
+
+/* =========================================
+   NAVBAR (HEADER) - Estilo Original Fijo
+========================================= */
+#Header { 
+    background-color: black;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    height: 100px;
+    width: 100%;
+    align-items: center;
+    padding: 0 20px;
+    z-index: 1000;
+}
+
+#Logo-Header-HomeButton {
+    background-color: black;
+    border: 0px;
+    cursor: pointer;
+    transition: transform 0.5s ease;
+}
+
+#Logo-Header-HomeButton:hover {
+    transform: scale(1.02);
+}
+
+#Logo-Header-HomeButton:active {
+    transform: scale(0.9);
+}
+
+#Logo-Header { 
+    width: 250px;
+    height: 70px;
+    object-fit: contain;
+}
+
+/* Botones del Navbar con Neumorfismo */
+#Catalogo-Vehiculos-Button,
+#Home-ComoFunciona-Button,
+#Home-SobreNosotros-Button,
+#MiCuenta-Button { 
+    background-color: rgb(0, 0, 0);
+    height: 50px;
+    width: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    border-radius: 17px;
+    font-weight: lighter;
+    font-size: larger;
+    cursor: pointer;
+    margin-left: 25px;
+    box-shadow: 
+        0px 7px 8px rgba(0, 0, 0, 0),
+        0px 8px 15px rgba(150, 150, 150, 0),
+        inset 0px 1px 10px rgb(168, 168, 168),
+        inset 0px -2px 6px rgb(0, 0, 0),
+        inset 0px -2px 10px rgb(170, 170, 170);
+    transition: transform 0.5s ease-out, box-shadow 0.5s ease;
+}
+
+#Catalogo-Vehiculos-Button p,
+#Home-ComoFunciona-Button p,
+#Home-SobreNosotros-Button p,
+#MiCuenta-Button p {
+    margin: 0;
+    padding: 0;
+}
+
+#Catalogo-Vehiculos-Button:hover,
+#Home-ComoFunciona-Button:hover,
+#Home-SobreNosotros-Button:hover,
+#MiCuenta-Button:hover {
+    box-shadow: 
+        0px 7px 8px rgb(0, 0, 0),
+        0px 8px 15px rgb(150, 150, 150),
+        inset 0px 1px 10px rgb(168, 168, 168),
+        inset 0px -2px 6px rgb(121, 121, 121),
+        inset 0px -2px 10px rgb(170, 170, 170);
+    transform: scale(1.03);
+}
+
+#Catalogo-Vehiculos-Button:active,
+#Home-ComoFunciona-Button:active,
+#Home-SobreNosotros-Button:active,
+#MiCuenta-Button:active {
+    transform: scale(0.9);
+}
+
+/* =========================================
+   PÁGINA DE CONTRATO
+========================================= */
+#Contrato-Page {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    padding: 40px;
+    color: rgb(0, 0, 0);
+    background: linear-gradient(100deg, rgba(255, 255, 255, 1) 0%, rgb(208, 209, 214) 50%, rgb(255, 255, 255) 100%);
+    min-height: calc(100vh - 100px); /* Descuenta el alto del header */
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* Lado Izquierdo: Tarjeta del Vehículo */
+#Contrato-Info {
+    flex: 1;
+    min-width: 320px;
+    max-width: 550px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: linear-gradient(100deg, rgba(255, 255, 255, 1) 0%, rgb(208, 209, 214) 50%, rgb(255, 255, 255) 100%);
+    padding: 25px;
+    border-radius: 20px;
+    border: 1px solid #bbbbbb;
+    box-shadow: 
+        0px 15px 25px rgba(0, 0, 0, 0.7),
+        inset 0px 1px 3px rgba(255, 255, 255, 0.1);
+}
+
+#Contrato-Img {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    border-radius: 14px;
+    object-fit: cover;
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.5);
+}
+
+#Contrato-Detalles h2 {
+    font-size: 24px;
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+}
+
+#Contrato-Detalles p {
+    font-size: 14px;
+    color: #000000;
+    margin-bottom: 6px;
+}
+
+.precio-contrato {
+    font-size: 22px !important;
+    color: rgb(0, 0, 0) !important;
+    font-weight: bold;
+    margin-top: 15px !important;
+    padding-top: 15px;
+    border-top: 1px solid #222;
+}
+
+/* Lado Derecho: Formulario */
+#Contrato-Form {
+    flex: 1;
+    min-width: 320px;
+    max-width: 550px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+#Contrato-Form h3 {
+    font-size: 16px;
+    color: #000000;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 10px;
+    border-bottom: 1px solid #222;
+    padding-bottom: 5px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group label {
+    font-size: 13px;
+    color: #000000;
+    margin-left: 4px;
+}
+
+/* Inputs con hundido Neumórfico */
+.form-group input {
+    padding: 12px 14px;
+    border-radius: 8px;
+    border: none;
+    background: #ffffff;
+    color: rgb(0, 0, 0);
+    font-size: 14px;
+    outline: none;
+    box-shadow: 
+        inset 0px 4px 10px rgb(255, 255, 255),
+        inset 0px -4px 10px rgb(255, 255, 255),
+        inset 0px 2px 5px rgb(190, 190, 190),
+        inset 0px -2px 5px rgb(100, 100, 100);
+    transition: all 0.3s ease;
+}
+
+
+
+/* Botón Confirmar Contrato */
+#btn-confirmar {
+    padding: 16px;
+    background: white;
+    color: black;
+    border: none;
+    border-radius: 14px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 15px;
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.3);
+    transition: transform 0.2s ease, background 0.3s ease;
+}
+
+#btn-confirmar:hover {
+    background: #48ff00;
+    transform: scale(1.01);
+}
+
+#btn-confirmar:active {
+    transform: scale(0.98);
+}

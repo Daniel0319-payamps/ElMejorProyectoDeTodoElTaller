@@ -1,0 +1,25 @@
+<div id="Catalogo">
+    {{#each vehiculos}}
+    <div class="tarjeta">
+        <img src="{{imagen_url}}" alt="{{marca}} {{modelo}}">
+        <div class="tarjeta-info">
+            <h2>{{marca}} {{modelo}}</h2>
+            <p class="precio">RD$ {{precio_dia}} / día</p>
+
+            {{#if esDisponible}}
+                <span class="badge badge-disponible">Disponible</span>
+            {{else if estaEnUso}}
+                <span class="badge badge-en-uso">En Uso</span>
+            {{else}}
+                <span class="badge badge-mantenimiento">En Mantenimiento</span>
+            {{/if}}
+
+            {{#if esDisponible}}
+                <a href="/contrato/{{id_vehiculo}}" class="btn-contrato">Iniciar Contrato</a>
+            {{else}}
+                <button class="btn-deshabilitado" disabled>No Disponible</button>
+            {{/if}}
+        </div>
+    </div>
+    {{/each}}
+</div>
