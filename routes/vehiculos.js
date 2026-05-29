@@ -8,8 +8,8 @@ function requireLogin(req, res, next) {
     next()
 }
 
-router.get('/', requireLogin, (req, res) => {
-    res.render('home')
+router.get('/', (req, res) => {
+    res.redirect('/catalogo')
 })
 
 router.get('/catalogo', requireLogin, (req, res) => {
@@ -44,7 +44,7 @@ router.post('/contrato/confirmar', requireLogin, (req, res) => {
                 return db.rollback(() => res.send('Este vehículo ya no está disponible.'))
             }
 
-                db.query('SELECT * FROM cliente WHERE id_usuario = ? OR cedula = ?', [req.session.usuario.id, cedula], (err, clienteExistente) => {                if (err) return db.rollback(() => res.send('Error verificando cliente: ' + err.message))
+                    db.query('SELECT * FROM cliente WHERE id_usuario = ? OR cedula = ?', [req.session.usuario.id, cedula], (err, clienteExistente) => {                if (err) return db.rollback(() => res.send('Error verificando cliente: ' + err.message))
 
                 if (clienteExistente.length > 0) {
                     continuarConContrato(clienteExistente[0].id_cliente)
